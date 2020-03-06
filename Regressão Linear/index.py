@@ -183,16 +183,14 @@ if option == '0' or option == '1' or option == '2':
         plt.title("Newspaper X Sales - B0: " + str(slr.B0) + " - B1: " + str(slr.B1))
         plt.xlabel("Newspaper")
         plt.ylabel("Sales")        
-        plt.plot(dados[:,1], y, 'go')
-        plt.plot(dados[:,2], y, 'go')
         plt.plot(dados[:,3], y, 'go')
-        plt.plot(dados[:,0], slr.predict(np.array(range(1,120))))
+        plt.plot(slr.predict(np.array(range(1,120))))
 
         # Medir erros
-        print("RSS: " + str(mlr.RSS(X, y)))
-        print("RSE: " + str(mlr.RSE(X, y)))
-        print("R2: " + str(mlr.R2(X, y)))
-        print("TSS: " + str(mlr.TSS(X, y)))
+        print("RSS: " + str(slr.RSS(X, y)))
+        print("RSE: " + str(slr.RSE(X, y)))
+        print("R2: " + str(slr.R2(X, y)))
+        print("TSS: " + str(slr.TSS(X, y)))
 
     # B1 e B0
     print("B1: " + str(slr.B1))
