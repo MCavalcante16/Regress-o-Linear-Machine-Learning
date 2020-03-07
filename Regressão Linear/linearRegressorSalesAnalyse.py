@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 #    dados = list(csv.reader(f, delimiter=','))
 
 #Usando NumPy
-dados = np.genfromtxt("Advertising.csv", delimiter=',', skip_header=1)
+dados = np.genfromtxt("Adversiting.csv", delimiter=',', skip_header=1)
+print(dados)
 X = dados[:,1:4]
 y = dados[:,4]
 #===================================================================================
@@ -41,12 +42,7 @@ class SampleLinearRegressor():
 
   #Aplica o predict em cada item do vetor da entrada
   def predict(self, x):
-    vetorResult = []
-    i = 0
-    while i < x.shape[0]:
-        vetorResult.append(self.predictEq(x[i]))
-        i = i + 1
-    return vetorResult
+    return self.B0 + self.B1*x
 
    #===================================================
 
@@ -141,6 +137,7 @@ slr = SampleLinearRegressor()
 mlr = MultipleLinearRegressor()
 
 
+print(dados)
 #================================Front===============================================================================
 print("Regressão Linear")
 option = input("Opções: 0 - TV x Sales |  1 - Radio x Sales  |  2 - Newspaper x Sales  |  3 - Investimentos x Sales (Regressao Multipla)\
